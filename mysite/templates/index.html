@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR">
-
+<html lang="pt-br">
     <head>
-        <title>Yuri Alberto</title>
+        <title>Teste</title>
         <meta charset="utf-8">
         <style>
             body{
-                background: gray;
+                background: grey;
             }
-            img,#Container{
-                border-radius: 50px;
+
+            ul{
+                list-style: none;
             }
-            h1,img{
-                padding: 20px 30px;
-            }
+
             #Container{
-                margin: 0px auto;
-                background: white;
-                width: 800px;
                 text-align: center;
+                background: white;
+                width: 1200px;
+                margin: 0px auto;
             }
         </style>
     </head>
 
     <body>
         <div id="Container">
-            <h1>Misericordia é o {{nome}} Na seleção brasileira</h1>
-            <img src={{url}} width="500px">
+            <h1>o podrera</h1>
+
+            {% if latest_questions_list %} 
+            
+            <ul>
+                {% for question in latest_questions_list %} 
+                <li> <a href="/polls/{{question_id}}/"> {{question.question_text}} </a></li>
+                {% endfor %}
+            </ul>
+
+            {% else %}
+            <p>TEM PERGUNTA NENHUMA JEGUE</p>
+            {% endif %}
         </div>
     </body>
 
